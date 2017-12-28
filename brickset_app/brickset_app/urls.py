@@ -18,6 +18,10 @@ from django.contrib import admin
 from django.contrib.auth.views import login, logout
 
 urlpatterns = [
+
+    url(r'^accounts/login/$', login, {'template_name': 'accounts/login.html'}, name='login'),
+    url(r'^accounts/logout/$', logout, {'next_page': '/accounts/login/'}, name='logout'),
+    
     url(r'^item/', include('item.urls')),
     url(r'^admin/', admin.site.urls),
 ]
