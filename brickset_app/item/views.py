@@ -1,10 +1,17 @@
-from django.shortcuts import render
-# from django.http import HttpResponse
-from django.template.response import TemplateResponse
+#from django.shortcuts import render
+from django.http import HttpResponse
+# from django.template.response import TemplateResponse
 # Create your views here.
 
+
+'''
 def hello(request):
-    #return HttpResponse('Hello sugoiHiroshima!')
+    name = request.POST['name']
+    return HttpResponse('nameは {0) です'.format(name))
+
+
+    return HttpResponse('Hello sugoiHiroshima!')
+
     context = {
         'headers': {
             'scheme': request.scheme,
@@ -20,9 +27,9 @@ def hello(request):
 
     
     return TemplateResponse(request, 'item/header.html', context)
-
+'''
 def post(request, post_id):
     return HttpResponse('post_idは = {0}です'.format(post_id))
 
-
-
+def news(request, slug='test'):
+    return HttpResponse('slugは = {}です'.format(slug))
