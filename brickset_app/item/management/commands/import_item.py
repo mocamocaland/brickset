@@ -21,7 +21,7 @@ class Command(BaseCommand):
             count = 0
 
             for item_obj in data:
-                
+
                 if not  item_obj['number']:
                     continue
 

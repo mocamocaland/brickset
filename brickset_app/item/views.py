@@ -52,15 +52,27 @@ def delete(request, item_id):
 
 @login_required
 @require_POST
-def add_to_widh_list(request, item_id):
+def add_to_wish_list(request, item_id):
     
     item = get_object_or_404(Item, pk=item_id)
 
     wish_list, created = WishList.objects.get_or_create(user=request.user)
 
+    wish_list.items.add(item)
+
+    return HttpResponseRedirect(reverse('wish_list_index'))
+
+
+@login_required
+@require_POST
+def delete_from_wish_list(request, item_id):
+    
+    item = get_object_or_404(Item, pk=item_id)
+    wish_list, created = WishList.objects.get_or_create(user=request.user)
     wish_list.items.remove(item)
 
     return HttpResponseRedirect(reverse('wish_list_index'))
+
 
 @login_required
 def wish_list_index(request):
