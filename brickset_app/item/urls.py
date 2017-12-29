@@ -4,7 +4,8 @@ from . import views
 
 
 urlpatterns = [
-    url(r'^hello/$', views.index, name='item_index'),
+
+    url(r'^$', views.index, name='item_index'),
 
     url(r'^(?P<item_id>[0-9]+)/edit/$', views.edit, name='item_edit'),
     url(r'^(?P<item_id>[0-9]+)/delete/$', views.delete, name='item_delete'),

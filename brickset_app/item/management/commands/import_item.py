@@ -1,11 +1,11 @@
 import json
 
 from django.core.management.base import BaseCommand
-
 from ...models import Item
 
 
 class Command(BaseCommand):
+
     help = 'Create Item from json file'
 
     def remove_null(self, value, default):
@@ -16,8 +16,9 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-        with open('web.json', 'r') as f:
-            data = json.load(f)
+
+        with open('web.json', 'r') as file:
+            data = json.load(file)
             count = 0
 
             for item_obj in data:

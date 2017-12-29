@@ -1,7 +1,9 @@
 from django.contrib.auth.models import User
 from django.db import models
 
+
 # Create your models here.
+
 
 class Item(models.Model):
     set_number = models.IntegerField('セット番号')
@@ -19,6 +21,7 @@ class Item(models.Model):
     def __str__(self):
         return self.name
 
+
 class WishList(models.Model):
     user = models.OneToOneField(User)
     items = models.ManyToManyField(Item)
@@ -27,4 +30,3 @@ class WishList(models.Model):
 
     def __str__(self):
         return 'wish list - {}'.format(self.user.username)
-
