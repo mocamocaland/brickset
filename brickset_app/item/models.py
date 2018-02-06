@@ -21,6 +21,25 @@ class Item(models.Model):
     def __str__(self):
         return self.name
 
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "set_number": self.set_number,
+            "name": self.name,
+            "iamge_url": self.image_url,
+            "rating": self.rating,
+            "piece_count": self.piece_count,
+            "minifig_count": self.minifig_count,
+            "us_price": self.us_price,
+            "owner_count": self.owner_count,
+            "want_it_count": self.want_it_count,
+            "created_at": self.created_at,
+            "updated_at": self.updated_at,
+        }
+
+    class Meta:
+        db_table = "item"
+
 
 class WishList(models.Model):
     user = models.OneToOneField(User)

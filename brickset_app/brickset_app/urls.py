@@ -25,4 +25,5 @@ urlpatterns = [
 
     url(r'^item/', include('item.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r"^api/",include('api.urls', app_name="api", namespace="api")),
 ]
